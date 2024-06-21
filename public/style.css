@@ -1,0 +1,217 @@
+body {
+    font-family: 'Quantico', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    line-height: 1.6;
+}
+
+nav {
+    background-color: #0B0C10;
+    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 1rem;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #C5C6C7;
+    font-weight: bold;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav ul li a:hover, nav ul li a:focus {
+    color: #66FCF1;
+}
+
+nav ul li a::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background: #66FCF1;
+    transition: width 0.3s;
+}
+
+nav ul li a:hover::after, nav ul li a:focus::after {
+    width: 100%;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+section {
+    padding: 4rem 2rem;
+    border-bottom: 1px solid #1F2833;
+}
+
+section#hello {
+    background: url(https://tailwindcss.com/_next/static/media/docs-dark@tinypng.1bbe175e.png);
+    background-position: center center;
+    text-align: center;
+    color: #66FCF1;
+    padding: 8rem 2rem;
+    position: relative;
+}
+
+section#hello::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+}
+
+section#hello .container {
+    position: relative;
+    z-index: 1;
+}
+
+section#hello h1 {
+    font-size: 4rem;
+    margin-bottom: 1rem;
+}
+
+section#hello p {
+    font-size: 1.75rem;
+}
+
+section h2 {
+    color: #66FCF1;
+    border-bottom: 2px solid #66FCF1;
+    padding-bottom: 0.5rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.project {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: #1F2833;
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.project h3 {
+    color: #45A29E;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.project p {
+    font-size: 1.1rem;
+}
+
+.project:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    text-align: center;
+    padding: 2rem;
+    background-color: #1F2833;
+    color: #C5C6C7;
+    border-top: 1px solid #45A29E;
+}
+
+a[href^="mailto:"]
+
+{ 
+  color:  #66FCF1;
+}
+
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: column;
+    }
+
+    nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    section {
+        padding: 2rem 1rem;
+    }
+
+    section#hello {
+        padding: 4rem 1rem;
+    }
+}
+
+#education, #skills, #extracurriculars {
+    background-color: #0B0C10;
+    color: #C5C6C7;
+    padding: 2rem;
+    border-left: 4px solid #66FCF1;
+    margin-bottom: 2rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+#education h2, #skills h2, #extracurriculars h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    color: #66FCF1;
+}
+
+#education p, #skills p, #extracurriculars p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+#education:hover, #skills:hover, #extracurriculars:hover {
+    background-color: #1F2833;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#education ul, #skills ul, #extracurriculars ul {
+    list-style: none;
+    padding: 0;
+}
+
+#education ul li, #skills ul li, #extracurriculars ul li {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    padding-left: 1.2rem;
+    position: relative;
+}
+
+#education ul li::before, #skills ul li::before, #extracurriculars ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #66FCF1;
+}
