@@ -50,4 +50,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Menu toggle or nav menu not found');
     }
 
+    // Smooth scrolling for internal links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+            e.preventDefault();
+            document.querySelector(this.getAttribute('href')).scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+    });
 });
