@@ -5,6 +5,11 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     line-height: 1.6;
+    background: radial-gradient(circle, transparent 20%, #232323 20%, #232323 80%, transparent 80%, transparent),
+                radial-gradient(circle, transparent 20%, #232323 20%, #232323 80%, transparent 80%, transparent) 37.5px 37.5px,
+                linear-gradient(#196367 3px, transparent 3px) 0 -1.5px,
+                linear-gradient(90deg, #196367 3px, #232323 3px) -1.5px 0;
+    background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
 }
 
 nav {
@@ -147,10 +152,8 @@ footer {
     border-top: 1px solid #45A29E;
 }
 
-a[href^="mailto:"]
-
-{ 
-  color:  #66FCF1;
+a[href^="mailto:"] { 
+    color:  #66FCF1;
 }
 
 @media (max-width: 768px) {
@@ -171,7 +174,7 @@ a[href^="mailto:"]
     }
 }
 
-#education, #skills, #extracurriculars {
+#education, #skills, #extracurriculars, #hackathons {
     background-color: #0B0C10;
     color: #C5C6C7;
     padding: 2rem;
@@ -180,36 +183,36 @@ a[href^="mailto:"]
     transition: background-color 0.3s, transform 0.3s;
 }
 
-#education h2, #skills h2, #extracurriculars h2 {
+#education h2, #skills h2, #extracurriculars h2, #hackathons h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #66FCF1;
 }
 
-#education p, #skills p, #extracurriculars p {
+#education p, #skills p, #extracurriculars p, #hackathons p {
     font-size: 1.2rem;
     margin-bottom: 0.5rem;
 }
 
-#education:hover, #skills:hover, #extracurriculars:hover {
+#education:hover, #skills:hover, #extracurriculars:hover, #hackathons:hover {
     background-color: #1F2833;
     transform: translateY(-5px);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-#education ul, #skills ul, #extracurriculars ul {
+#education ul, #skills ul, #extracurriculars ul, #hackathons ul {
     list-style: none;
     padding: 0;
 }
 
-#education ul li, #skills ul li, #extracurriculars ul li {
+#education ul li, #skills ul li, #extracurriculars ul li, #hackathons ul li {
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
     padding-left: 1.2rem;
     position: relative;
 }
 
-#education ul li::before, #skills ul li::before, #extracurriculars ul li::before {
+#education ul li::before, #skills ul li::before, #extracurriculars ul li::before, #hackathons ul li::before {
     content: '•';
     position: absolute;
     left: 0;
