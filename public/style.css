@@ -289,3 +289,36 @@ a[href^="mailto:"]:hover {
 .hover-glow:hover {
     box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
+
+#nav-menu {
+    display: flex;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+}
+
+#nav-menu.show {
+    max-height: 500px; /* Adjust this value based on your menu's height */
+    opacity: 1;
+}
+
+.menu-toggle {
+    transition: transform 0.3s ease-out;
+}
+
+.menu-toggle.active {
+    transform: rotate(90deg);
+}
+
+@media (max-width: 768px) {
+    #nav-menu {
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: rgba(11, 12, 16, 0.9);
+        backdrop-filter: blur(10px);
+    }
+}
