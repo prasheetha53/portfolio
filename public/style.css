@@ -6,16 +6,17 @@ body {
     color: #C5C6C7;
     line-height: 1.6;
     background: linear-gradient(to bottom, #000000, #0B0C10);
+    letter-spacing: 0.05em; /* Added for a futuristic touch */
 }
 
 nav {
-    background-color: rgba(11, 12, 16, 0.8);
-    backdrop-filter: blur(10px);
+    background-color: rgba(11, 12, 16, 0.85); 
+    backdrop-filter: blur(12px); 
     padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.2);
+    box-shadow: 0 6px 24px rgba(102, 252, 241, 0.25); 
 }
 
 nav ul {
@@ -35,12 +36,12 @@ nav ul li a {
     color: #C5C6C7;
     font-weight: bold;
     position: relative;
-    transition: color 0.3s ease, text-shadow 0.3s ease;
+    transition: color 0.25s ease, text-shadow 0.25s ease;
 }
 
 nav ul li a:hover, nav ul li a:focus {
     color: #66FCF1;
-    text-shadow: 0 0 10px rgba(102, 252, 241, 0.7);
+    text-shadow: 0 0 10px rgba(102, 252, 241, 0.8);
 }
 
 nav ul li a::after {
@@ -48,13 +49,13 @@ nav ul li a::after {
     display: block;
     width: 0;
     height: 2px;
-    background: #66FCF1;
-    transition: width 0.3s, box-shadow 0.3s;
+    background: linear-gradient(90deg, #66FCF1, #45A29E); 
+    transition: width 0.3s ease, box-shadow 0.3s ease;
 }
 
 nav ul li a:hover::after, nav ul li a:focus::after {
     width: 100%;
-    box-shadow: 0 0 10px #66FCF1;
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
 
 .container {
@@ -68,6 +69,7 @@ section {
     border-bottom: 1px solid rgba(31, 40, 51, 0.5);
     position: relative;
     overflow: hidden;
+    transition: background-color 0.3s ease-in-out;
 }
 
 section::before {
@@ -77,7 +79,7 @@ section::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(102, 252, 241, 0.08) 0%, transparent 70%);
     pointer-events: none;
 }
 
@@ -86,32 +88,17 @@ section#hello {
     color: #66FCF1;
     padding: 8rem 2rem;
     position: relative;
-}
-
-section#hello::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    animation: pulse 4s infinite alternate;
-}
-
-section#hello .container {
-    position: relative;
-    z-index: 1;
+    background: linear-gradient(180deg, #0B0C10, #1F2833); 
 }
 
 section#hello h1 {
-    font-size: 4rem;
+    font-size: 3.5rem; 
     margin-bottom: 1rem;
     text-shadow: 0 0 20px rgba(102, 252, 241, 0.7);
 }
 
 section#hello p {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
     text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
 
@@ -121,42 +108,22 @@ section h2 {
     padding-bottom: 0.5rem;
     margin-bottom: 2rem;
     text-align: center;
-    font-size: 2.5rem;
-    text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
+    font-size: 2.25rem; 
+    text-shadow: 0 0 12px rgba(102, 252, 241, 0.6);
 }
 
 .project {
     margin-bottom: 2rem;
-    padding: 1rem;
-    background-color: rgba(31, 40, 51, 0.8);
-    border-radius: 8px;
-    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 1.5rem; 
+    background-color: rgba(31, 40, 51, 0.85); 
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
     backdrop-filter: blur(5px);
 }
 
-.project h3 {
-    color: #45A29E;
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.project p {
-    font-size: 1.1rem;
-}
-
 .project:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 8px 30px rgba(102, 252, 241, 0.2);
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-ul li {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
+    transform: translateY(-8px) scale(1.03); 
+    box-shadow: 0 10px 40px rgba(102, 252, 241, 0.2); 
 }
 
 footer {
@@ -165,16 +132,7 @@ footer {
     background-color: rgba(31, 40, 51, 0.9);
     color: #C5C6C7;
     border-top: 1px solid #45A29E;
-    backdrop-filter: blur(10px);
-}
-
-a[href^="mailto:"] { 
-    color: #66FCF1;
-    transition: text-shadow 0.3s;
-}
-
-a[href^="mailto:"]:hover {
-    text-shadow: 0 0 10px rgba(102, 252, 241, 0.7);
+    backdrop-filter: blur(12px); 
 }
 
 @media (max-width: 768px) {
@@ -187,50 +145,14 @@ a[href^="mailto:"]:hover {
     }
 
     section {
-        padding: 2rem 1rem;
+        padding: 3rem 1.5rem;
     }
 
     section#hello {
-        padding: 4rem 1rem;
+        padding: 5rem 1.5rem;
     }
-}
 
-#education, #skills, #extracurriculars, #hackathons {
-    background-color: rgba(11, 12, 16, 0.8);
-    color: #C5C6C7;
-    padding: 2rem;
-    border-left: 4px solid #66FCF1;
-    margin-bottom: 2rem;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
-    backdrop-filter: blur(5px);
-}
-
-#education h2, #skills h2, #extracurriculars h2, #hackathons h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    color: #66FCF1;
-    text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
-}
-
-#education p, #skills p, #extracurriculars p, #hackathons p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-}
-
-#education:hover, #skills:hover, #extracurriculars:hover, #hackathons:hover {
-    background-color: rgba(31, 40, 51, 0.9);
-    transform: translateY(-5px) scale(1.01);
-    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.2);
-}
-
-#education ul, #skills ul, #extracurriculars ul, #hackathons ul {
-    list-style: none;
-    padding: 0;
-}
-
-#education ul li, #skills ul li, #extracurriculars ul li, #hackathons ul li {
-    font-size: 1.1rem;
-    margin-bottom: 0.5rem;
-    padding-left: 1.2rem;
-    position: relative;
+    section h2 {
+        font-size: 2rem; /* Adjusted font-size for smaller screens */
+    }
 }
