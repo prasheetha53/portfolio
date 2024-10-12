@@ -5,16 +5,17 @@ body {
     background-color: #0B0C10;
     color: #C5C6C7;
     line-height: 1.6;
-    background: #000000
+    background: linear-gradient(to bottom, #000000, #0B0C10);
 }
 
 nav {
-    background-color: #0B0C10;
+    background-color: rgba(11, 12, 16, 0.8);
+    backdrop-filter: blur(10px);
     padding: 1rem;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.2);
 }
 
 nav ul {
@@ -34,11 +35,12 @@ nav ul li a {
     color: #C5C6C7;
     font-weight: bold;
     position: relative;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 
 nav ul li a:hover, nav ul li a:focus {
     color: #66FCF1;
+    text-shadow: 0 0 10px rgba(102, 252, 241, 0.7);
 }
 
 nav ul li a::after {
@@ -47,11 +49,12 @@ nav ul li a::after {
     width: 0;
     height: 2px;
     background: #66FCF1;
-    transition: width 0.3s;
+    transition: width 0.3s, box-shadow 0.3s;
 }
 
 nav ul li a:hover::after, nav ul li a:focus::after {
     width: 100%;
+    box-shadow: 0 0 10px #66FCF1;
 }
 
 .container {
@@ -62,15 +65,29 @@ nav ul li a:hover::after, nav ul li a:focus::after {
 
 section {
     padding: 4rem 2rem;
-    border-bottom: 1px solid #1F2833;
+    border-bottom: 1px solid rgba(31, 40, 51, 0.5);
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle, rgba(102, 252, 241, 0.1) 0%, transparent 70%);
+    pointer-events: none;
 }
 
 section#hello {
-    background: radial-gradient(circle, transparent 20%, #232323 20%, #232323 80%, transparent 80%, transparent),
-                radial-gradient(circle, transparent 20%, #232323 20%, #232323 80%, transparent 80%, transparent) 37.5px 37.5px,
-                linear-gradient(#196367 3px, transparent 3px) 0 -1.5px,
-                linear-gradient(90deg, #196367 3px, #232323 3px) -1.5px 0;
-    background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;;
+    background: 
+        radial-gradient(circle, transparent 20%, rgba(35, 35, 35, 0.8) 20%, rgba(35, 35, 35, 0.8) 80%, transparent 80%, transparent),
+        radial-gradient(circle, transparent 20%, rgba(35, 35, 35, 0.8) 20%, rgba(35, 35, 35, 0.8) 80%, transparent 80%, transparent) 37.5px 37.5px,
+        linear-gradient(rgba(25, 99, 103, 0.5) 3px, transparent 3px) 0 -1.5px,
+        linear-gradient(90deg, rgba(25, 99, 103, 0.5) 3px, transparent 3px) -1.5px 0;
+    background-size: 75px 75px, 75px 75px, 37.5px 37.5px, 37.5px 37.5px;
     background-position: center center;
     text-align: center;
     color: #66FCF1;
@@ -86,6 +103,16 @@ section#hello::before {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
+    animation: pulse 4s infinite alternate;
+}
+
+@keyframes pulse {
+    0% {
+        background: rgba(0, 0, 0, 0.6);
+    }
+    100% {
+        background: rgba(0, 0, 0, 0.8);
+    }
 }
 
 section#hello .container {
@@ -96,10 +123,12 @@ section#hello .container {
 section#hello h1 {
     font-size: 4rem;
     margin-bottom: 1rem;
+    text-shadow: 0 0 20px rgba(102, 252, 241, 0.7);
 }
 
 section#hello p {
     font-size: 1.75rem;
+    text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
 
 section h2 {
@@ -109,14 +138,16 @@ section h2 {
     margin-bottom: 2rem;
     text-align: center;
     font-size: 2.5rem;
+    text-shadow: 0 0 15px rgba(102, 252, 241, 0.6);
 }
 
 .project {
     margin-bottom: 2rem;
     padding: 1rem;
-    background-color: #1F2833;
+    background-color: rgba(31, 40, 51, 0.8);
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
 }
 
 .project h3 {
@@ -130,8 +161,8 @@ section h2 {
 }
 
 .project:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 8px 30px rgba(102, 252, 241, 0.2);
 }
 
 ul {
@@ -147,13 +178,19 @@ ul li {
 footer {
     text-align: center;
     padding: 2rem;
-    background-color: #1F2833;
+    background-color: rgba(31, 40, 51, 0.9);
     color: #C5C6C7;
     border-top: 1px solid #45A29E;
+    backdrop-filter: blur(10px);
 }
 
 a[href^="mailto:"] { 
-    color:  #66FCF1;
+    color: #66FCF1;
+    transition: text-shadow 0.3s;
+}
+
+a[href^="mailto:"]:hover {
+    text-shadow: 0 0 10px rgba(102, 252, 241, 0.7);
 }
 
 @media (max-width: 768px) {
@@ -175,18 +212,20 @@ a[href^="mailto:"] {
 }
 
 #education, #skills, #extracurriculars, #hackathons {
-    background-color: #0B0C10;
+    background-color: rgba(11, 12, 16, 0.8);
     color: #C5C6C7;
     padding: 2rem;
     border-left: 4px solid #66FCF1;
     margin-bottom: 2rem;
-    transition: background-color 0.3s, transform 0.3s;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    backdrop-filter: blur(5px);
 }
 
 #education h2, #skills h2, #extracurriculars h2, #hackathons h2 {
     font-size: 2rem;
     margin-bottom: 1rem;
     color: #66FCF1;
+    text-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
 
 #education p, #skills p, #extracurriculars p, #hackathons p {
@@ -195,9 +234,9 @@ a[href^="mailto:"] {
 }
 
 #education:hover, #skills:hover, #extracurriculars:hover, #hackathons:hover {
-    background-color: #1F2833;
-    transform: translateY(-5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: rgba(31, 40, 51, 0.9);
+    transform: translateY(-5px) scale(1.01);
+    box-shadow: 0 4px 20px rgba(102, 252, 241, 0.2);
 }
 
 #education ul, #skills ul, #extracurriculars ul, #hackathons ul {
@@ -217,4 +256,36 @@ a[href^="mailto:"] {
     position: absolute;
     left: 0;
     color: #66FCF1;
+    text-shadow: 0 0 5px rgba(102, 252, 241, 0.7);
+}
+
+.glow-effect {
+    position: relative;
+}
+
+.glow-effect::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #66FCF1, #45A29E);
+    filter: blur(15px);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.3s;
+}
+
+.glow-effect:hover::after {
+    opacity: 0.7;
+}
+
+.neon-text {
+    color: #66FCF1;
+    text-shadow: 0 0 5px #66FCF1, 0 0 10px #66FCF1, 0 0 20px #66FCF1;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
 }
