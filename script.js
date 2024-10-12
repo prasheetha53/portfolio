@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             projectContainer.innerHTML = ''; // Clear previous content
             projects.forEach(project => {
                 const projectElement = document.createElement('div');
-                projectElement.classList.add('project');
+                projectElement.classList.add('project', 'glow-effect', 'hover-glow');
                 projectElement.innerHTML = `
                     <h3>${project.title}</h3>
                     <p>${project.description}</p>
@@ -40,11 +40,27 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle menu for smaller screens
     const menuToggle = document.getElementById('menu-toggle');
     const navMenu = document.getElementById('nav-menu');
-
     if (menuToggle && navMenu) {
         menuToggle.addEventListener('click', () => {
             console.log('Menu toggle clicked');
+            menuToggle.classList.toggle('active');
             navMenu.classList.toggle('show');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (event) => {
+            if (!navMenu.contains(event.target) && !menuToggle.contains(event.target)) {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('show');
+            }
+        });
+
+        // Close menu when a nav item is clicked
+        navMenu.querySelectorAll('a').forEach(navItem => {
+            navItem.addEventListener('click', () => {
+                menuToggle.classList.remove('active');
+                navMenu.classList.remove('show');
+            });
         });
     } else {
         console.error('Menu toggle or nav menu not found');
@@ -57,6 +73,17 @@ document.addEventListener('DOMContentLoaded', () => {
             document.querySelector(this.getAttribute('href')).scrollIntoView({
                 behavior: 'smooth'
             });
+        });
+    });
+
+    // Add futuristic hover effect to all elements with 'hover-glow' class
+    const hoverGlowElements = document.querySelectorAll('.hover-glow');
+    hoverGlowElements.forEach(element => {
+        element.addEventListener('mouseover', () => {
+            element.style.textShadow = '0 0 10px #66FCF1, 0 0 20px #66FCF1, 0 0 30px #66FCF1';
+        });
+        element.addEventListener('mouseout', () => {
+            element.style.textShadow = 'none';
         });
     });
 });
